@@ -1,7 +1,7 @@
 import re
 from fetch_html import fetch_html
 from transform_state import transform_state
-from helpers import structure_headers
+from helpers import structure_headers, get_pattern
 from _rules import rules
 from _exclusions import exclusions
 from _config import bucket_name, index_key
@@ -15,7 +15,7 @@ def lambda_handler(event, context):
             return request
         
     for rule in rules: 
-        if not re.match(rule["pattern"], request["uri"]):
+        if not re.match(get_pattern(rule), request["uri"]):
             continue
         state = fetch_html(bucket_name, index_key)
         state['request'] = request

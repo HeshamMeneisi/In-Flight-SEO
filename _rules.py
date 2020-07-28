@@ -1,9 +1,11 @@
 # Transformation rules
 
 # This can also be parsed from JSON on the source S3
+
 rules = \
 [{
   "pattern": "/about",
+  "exact": True,
   "transformations": [{
     "name": "inject_meta_field",
     "params": {"field": "<meta name=description value=\"This is the about section!\"/>"}
@@ -17,6 +19,7 @@ rules = \
  },
  {
   "pattern": "/services",
+  "strict": True,
   "transformations": [{
    "name": "replace_meta_value",
    "params": {"id_attrib": "property",
