@@ -1,4 +1,5 @@
-# This is an example of a rules file
+# Transformation rules
+
 # This can also be parsed from JSON on the source S3
 rules = \
 [{
