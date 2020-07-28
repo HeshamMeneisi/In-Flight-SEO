@@ -6,6 +6,7 @@ from _rules import rules
 from _exclusions import exclusions
 from _config import bucket_name, index_key
 
+
 def lambda_handler(event, context):
     request = event["Records"][0]["cf"]["request"]
     
