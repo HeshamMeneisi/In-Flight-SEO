@@ -7,7 +7,7 @@ from helpers import structure_headers
 def lambda_handler(event, context):
     request = event["Records"][0]["cf"]["request"]
     
-    if re.match("\.(js|css|jpg|png|svg)$", request["uri"]):
+    if re.match(".*\.(js|css|jpg|png|svg)$", request["uri"]):
         return request
         
     for rule in rules: 
